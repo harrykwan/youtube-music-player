@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>pulse - Music, Audio and Radio web application</title>
+	<meta name="description" content="Music, Musician, Bootstrap" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- for ios 7 style, multi-resolution icon of 152x152 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+	<link rel="apple-touch-icon" href="images/logo.png">
+	<meta name="apple-mobile-web-app-title" content="Flatkit">
+	<!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" sizes="196x196" href="images/logo.png">
+
+	<!-- style -->
+	<link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+	<link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+	<link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+	<!-- build:css css/styles/app.min.css -->
+	<link rel="stylesheet" href="css/styles/app.css" type="text/css" />
+	<link rel="stylesheet" href="css/styles/style.css" type="text/css" />
+	<link rel="stylesheet" href="css/styles/font.css" type="text/css" />
+
+	<link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" type="text/css" />
+	<link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.css" type="text/css" />
+	<link rel="stylesheet" href="libs/mediaelement/build/mediaelementplayer.min.css" type="text/css" />
+	<link rel="stylesheet" href="libs/mediaelement/build/mep.css" type="text/css" />
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<!-- endbuild -->
+</head>
+
+<body>
+	<div class="app dk" id="app">
+
+		<!-- ############ LAYOUT START-->
+
+		<!-- aside -->
+		<div id="aside" class="app-aside modal fade nav-dropdown">
+			<!-- fluid app aside -->
+			<div class="left navside grey dk" data-layout="column">
+				<div class="navbar no-radius">
+					<!-- brand -->
+					<a href="index.html" class="navbar-brand md">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+							<circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)" />
+							<circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color" />
+							<circle cx="24" cy="24" r="10" fill="#ffffff" />
+							<circle cx="13" cy="13" r="2" fill="#ffffff" class="brand-animate" />
+							<path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
+							<circle cx="24" cy="24" r="3" fill="#000000" />
+						</svg>
+
+						<img src="images/logo.png" alt="." class="hide">
+						<span class="hidden-folded inline">pulse</span>
+					</a>
+					<!-- / brand -->
+				</div>
+				<div data-flex class="hide-scroll">
+					<nav class="scroll nav-stacked nav-active-primary">
+
+						<ul class="nav" data-ui-nav>
+							<li class="nav-header hidden-folded">
+								<span class="text-xs text-muted">Main</span>
+							</li>
+							<li>
+								<a href="player.html">
+									<span class="nav-icon">
+										<i class="material-icons">
+											play_circle_outline
+										</i>
+									</span>
+									<span class="nav-text">Discover</span>
+								</a>
+							</li>
+							<li>
+								<a href="browse.html">
+									<span class="nav-icon">
+										<i class="material-icons">
+											sort
+										</i>
+									</span>
+									<span class="nav-text">Browse</span>
+								</a>
+							</li>
+							<li>
+								<a href="chart.html">
+									<span class="nav-icon">
+										<i class="material-icons">
+											trending_up
+										</i>
+									</span>
+									<span class="nav-text">Charts</span>
+								</a>
+							</li>
+							<li>
+								<a href="artist.html">
+									<span class="nav-icon">
+										<i class="material-icons">
+											portrait
+										</i>
+									</span>
+									<span class="nav-text">Artist</span>
+								</a>
+							</li>
+							<li>
+								<a data-toggle="modal" data-target="#search-modal">
+									<span class="nav-icon">
+										<i class="material-icons">
+											search
+										</i>
+									</span>
+									<span class="nav-text">Search</span>
+								</a>
+							</li>
+
+
+							<li class="nav-header hidden-folded m-t">
+								<span class="text-xs text-muted">Your collection</span>
+							</li>
+							<li>
+								<a href="profile.html#tracks">
+									<span class="nav-label">
+										<b class="label">8</b>
+									</span>
+									<span class="nav-icon">
+										<i class="material-icons">
+											list
+										</i>
+									</span>
+									<span class="nav-text">Tracks</span>
+								</a>
+							</li>
+							<li>
+								<a href="profile.html#playlists">
+									<span class="nav-icon">
+										<i class="material-icons">
+											queue_music
+										</i>
+									</span>
+									<span class="nav-text">Playlists</span>
+								</a>
+							</li>
+							<li>
+								<a href="profile.html#likes">
+									<span class="nav-icon">
+										<i class="material-icons">
+											favorite_border
+										</i>
+									</span>
+									<span class="nav-text">Likes</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div data-flex-no-shrink>
+					<div class="nav-fold dropup">
+						<a data-toggle="dropdown">
+							<span class="pull-left">
+								<img src="images/a3.jpg" alt="..." class="w-32 img-circle">
+							</span>
+							<span class="clear hidden-folded p-x p-y-xs">
+								<span class="block _500 text-ellipsis">Rachel Platten</span>
+							</span>
+						</a>
+						<div class="dropdown-menu w dropdown-menu-scale ">
+							<a class="dropdown-item" href="profile.html#profile">
+								<span>Profile</span>
+							</a>
+							<a class="dropdown-item" href="profile.html#tracks">
+								<span>Tracks</span>
+							</a>
+							<a class="dropdown-item" href="profile.html#playlists">
+								<span>Playlists</span>
+							</a>
+							<a class="dropdown-item" href="profile.html#likes">
+								<span>Likes</span>
+							</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="docs.html">
+								Need help?
+							</a>
+							<a class="dropdown-item" href="signin.html">Sign out</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- / -->
+
+		<!-- content -->
+		<div id="content" class="app-content white bg box-shadow-z2" role="main">
+			<div class="app-header hidden-lg-up white lt box-shadow-z1">
+				<div class="navbar">
+					<!-- brand -->
+					<a href="index.html" class="navbar-brand md">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+							<circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)" />
+							<circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color" />
+							<circle cx="24" cy="24" r="10" fill="#ffffff" />
+							<circle cx="13" cy="13" r="2" fill="#ffffff" class="brand-animate" />
+							<path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
+							<circle cx="24" cy="24" r="3" fill="#000000" />
+						</svg>
+
+						<img src="images/logo.png" alt="." class="hide">
+						<span class="hidden-folded inline">pulse</span>
+					</a>
+					<!-- / brand -->
+					<!-- nabar right -->
+					<ul class="nav navbar-nav pull-right">
+						<li class="nav-item">
+							<!-- Open side - Naviation on mobile -->
+							<a data-toggle="modal" data-target="#aside" class="nav-link">
+								<i class="material-icons">menu</i>
+							</a>
+							<!-- / -->
+						</li>
+					</ul>
+					<!-- / navbar right -->
+				</div>
+			</div>
+			<div class="app-footer app-player grey bg">
+				<div class="playlist" style="width:100%"></div>
+			</div>
+			<div class="app-body" id="view">
+
+				<!-- ############ PAGE START-->
+				<div class="padding">
+					<form action="#" class="m-b-md">
+						<div class="input-group input-group-lg">
+							<input type="text" v-model="searchinput" class="form-control" placeholder="Type keyword">
+							<span class="input-group-btn">
+								<button v-on:click="searchsong()" class="btn b-a no-shadow white"
+									type="button">Search</button>
+							</span>
+						</div>
+					</form>
+					<p v-if="searchresult.length" class="m-b-md"><strong>{{searchresult.length}}</strong> Results found
+						for:
+						<strong>{{searchinput}}</strong>
+					</p>
+					<div class="m-y">
+						<div class="row item-list item-list-lg item-list-by m-b">
+							<template v-for="item in searchresult">
+								<div class="col-xs-12" v-if="item.type=='video'">
+									<div class="item r">
+										<div class="item-media ">
+											<a href="#" v-on:click="playnow(item)" class="item-media-content"
+												:style="{ backgroundImage: 'url(' + item.thumbnail.thumbnails[0].url + ')' }"></a>
+											<!-- <div class="item-overlay center">
+												<button class="btn-playpause">Play</button>
+											</div> -->
+										</div>
+										<div class="item-info">
+											<div class="item-overlay bottom text-right">
+												<a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
+												<a href="#" class="btn-more" data-toggle="dropdown"><i
+														class="fa fa-ellipsis-h"></i></a>
+												<div class="dropdown-menu pull-right black lt"></div>
+											</div>
+											<div class="item-title text-ellipsis">
+												<a v-on:click="playnow(item)">{{item.title}}</a>
+											</div>
+											<div class="item-author text-sm text-ellipsis ">
+												<a v-on:click="playnow(item)"
+													class="text-muted">{{item.channelTitle}}</a>
+											</div>
+											<!-- <div class="item-meta text-sm text-muted">
+												<span class="item-meta-tag visible-list"><a
+														href="browse.html"></a></span>
+											</div> -->
+											<!-- 
+											<div class="item-except visible-list text-sm text-muted h-2x m-t-sm">
+												Tandem linguam nescio? Sed hoc sane concedamus.
+											</div> -->
+
+										</div>
+									</div>
+								</div>
+							</template>
+						</div>
+						<div hidden>
+							<ul class="pagination">
+								<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- ############ PAGE END-->
+
+			</div>
+		</div>
+		<!-- / -->
+
+
+
+
+		<!-- ############ SHARE START -->
+		<div id="share-modal" class="modal fade animate">
+			<div class="modal-dialog">
+				<div class="modal-content fade-down">
+					<div class="modal-header">
+
+						<h5 class="modal-title">Share</h5>
+					</div>
+					<div class="modal-body p-lg">
+						<div id="share-list" class="m-b">
+							<a href="" class="btn btn-icon btn-social rounded btn-social-colored indigo"
+								title="Facebook">
+								<i class="fa fa-facebook"></i>
+								<i class="fa fa-facebook"></i>
+							</a>
+
+							<a href="" class="btn btn-icon btn-social rounded btn-social-colored light-blue"
+								title="Twitter">
+								<i class="fa fa-twitter"></i>
+								<i class="fa fa-twitter"></i>
+							</a>
+
+							<a href="" class="btn btn-icon btn-social rounded btn-social-colored red-600"
+								title="Google+">
+								<i class="fa fa-google-plus"></i>
+								<i class="fa fa-google-plus"></i>
+							</a>
+
+							<a href="" class="btn btn-icon btn-social rounded btn-social-colored blue-grey-600"
+								title="Trumblr">
+								<i class="fa fa-tumblr"></i>
+								<i class="fa fa-tumblr"></i>
+							</a>
+
+							<a href="" class="btn btn-icon btn-social rounded btn-social-colored red-700"
+								title="Pinterst">
+								<i class="fa fa-pinterest"></i>
+								<i class="fa fa-pinterest"></i>
+							</a>
+						</div>
+						<div>
+							<input class="form-control" value="http://plamusic.com/slug" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ############ SHARE END -->
+
+		<!-- ############ LAYOUT END-->
+
+		<div class="app-footer app-player grey bg" v-if="nowplaying.id">
+			<div class="playlist mep-tracks-count-1 has-artwork is-tracklist-closed" style="width: 100%;"><span
+					class="mejs-offscreen">Audio Player</span>
+				<div id="mep_0" class="mejs-container mejs-audio" tabindex="0" role="application"
+					aria-label="Audio Player" style="width: 100%; height: 40px;">
+					<div class="mejs-inner">
+						<div class="mejs-mediaelement"><audio id="nowplayingaudio"
+								:src="'audio/'+nowplaying.id"></audio>
+						</div>
+						<div class="mejs-layers">
+							<div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 40px;"></div>
+							<div class="mejs-track-actions"><button class="mejs-like-button btn btn-sm no-bg btn-icon"
+									track-id="item-3"></button></div><a class="mejs-track-artwork"
+								:style="{ backgroundImage: 'url(' + nowplaying.thumbnail.thumbnails[0].url + ')' }"></a>
+							<div class="mejs-track-details"><span class="mejs-track-title"><a
+										href="track.detail.html">{{nowplaying.title}}</a></span><span
+									class="mejs-track-author"><a
+										href="artist.detail.html">{{nowplaying.channelTitle}}</a></span>
+							</div>
+							<div class="mejs-track-source"><i></i></div>
+							<!-- <div class="mejs-overlay-error mejs-layer" style="width: 100%; height: 40px;">
+								<div class="mejs-error">Oh snap, there was a playback error!</div>
+							</div> -->
+						</div>
+						<div class="mejs-controls">
+							<div class="mejs-button mejs-previous-button mejs-previous"><button type="button"
+									aria-controls="mep_0" title="Previous Track"></button></div>
+							<div class="mejs-button mejs-playpause-button mejs-play"><button type="button"
+									v-on:click="playsong()" aria-controls="mep_0" title="Play"
+									aria-label="Play"></button></div>
+							<div class="mejs-button mejs-next-button mejs-next"><button type="button"
+									aria-controls="mep_0" title="Next Track"></button></div>
+							<div class="mejs-time-rail" style="width: 799px;"><span
+									class="mejs-time-total mejs-time-slider" style="width: 799px;"
+									aria-label="Time Slider" aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0"
+									aria-valuetext="00:00" role="slider" tabindex="0"><span class="mejs-time-buffering"
+										style="display: none;"></span><span class="mejs-time-loaded"></span><span
+										class="mejs-time-current"></span><span class="mejs-time-handle"></span><span
+										class="mejs-time-float" style="display: none;"><span
+											class="mejs-time-float-current">00:00</span><span
+											class="mejs-time-float-corner"></span></span></span></div>
+							<div class="mejs-time" role="timer" aria-live="off"><span
+									class="mejs-currenttime">00:00</span><span class="mejs-time-separator"> /
+								</span><span class="mejs-duration">00:00</span></div>
+							<div class="mejs-button mejs-volume-button mejs-mute"><button type="button"
+									aria-controls="mep_0" title="Mute" aria-label="Mute"></button><a
+									href="javascript:void(0);" class="mejs-volume-slider" style="display: none;"
+									aria-label="volumeSlider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"
+									aria-valuetext="80%" role="slider" tabindex="0"><span class="mejs-offscreen">Use
+										Up/Down Arrow keys to increase or decrease volume.</span>
+									<div class="mejs-volume-total"></div>
+									<div class="mejs-volume-current" style="height: 80px; top: 28px;"></div>
+									<div class="mejs-volume-handle" style="top: 25px;"></div>
+								</a></div>
+							<div class="mejs-button mejs-repeat-button mejs-repeat"><button type="button"
+									aria-controls="mep_0" title="Repeat"></button></div>
+							<div class="mejs-button mejs-shuffle-button mejs-repeat"><button type="button"
+									aria-controls="mep_0" title="Shuffle"></button></div>
+							<div class="mejs-button mejs-toggle-playlist-button mejs-toggle-playlist is-closed"><button
+									type="button" aria-controls="mep_0" title="Toggle Playlist"></button></div>
+						</div>
+						<div class="mejs-clear"></div>
+					</div>
+				</div>
+				<ol class="tracks">
+					<li class="track">
+						<div class="track-action"><a class="track-remove">×</a></div>
+						<div class="track-info"><span class="track-title">{{nowplaying.title}}</span><span
+								class="track-author">{{nowplaying.channelTitle}}</span></div>
+					</li>
+				</ol>
+			</div>
+		</div>
+
+	</div>
+	<script>
+		const { createApp } = Vue
+
+		const VueApp = createApp({
+			data() {
+				return {
+					searchresult: [],
+					searchinput: '',
+					nowplaying: {}
+				}
+			}, methods: {
+				searchsong: async function () {
+					const searchinput = VueApp.$data.searchinput
+
+					const result = await new Promise((resolve, reject) => {
+						const xhttp = new XMLHttpRequest();
+						xhttp.onload = function () {
+							resolve(JSON.parse(this.responseText))
+						}
+						xhttp.open("GET", "search/" + searchinput, true);
+						xhttp.send();
+					})
+					console.log(result)
+					this.searchresult = result.items
+				}, playnow: async function (item) {
+					this.nowplaying = item
+					// document.getElementById("nowplayingaudio").play()
+					setTimeout(() => {
+						document.getElementById("nowplayingaudio").play()
+					}, 500);
+
+				}, playsong: async function () {
+					document.getElementById("nowplayingaudio").play()
+				}
+			}
+		}).mount('#app')
+	</script>
+	<!-- build:js scripts/app.min.js -->
+	<!-- jQuery -->
+	<script src="libs/jquery/dist/jquery.js"></script>
+	<!-- Bootstrap -->
+	<script src="libs/tether/dist/js/tether.min.js"></script>
+	<script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+	<!-- core -->
+	<script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+	<script src="libs/jquery.stellar/jquery.stellar.min.js"></script>
+	<script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+	<script src="libs/jscroll/jquery.jscroll.min.js"></script>
+	<script src="libs/PACE/pace.min.js"></script>
+	<script src="libs/jquery-pjax/jquery.pjax.js"></script>
+
+	<!-- <script src="libs/mediaelement/build/mediaelement-and-player.min.js"></script> -->
+	<!-- <script src="libs/mediaelement/build/mep.js"></script> -->
+	<!-- <script src="scripts/player.js"></script> -->
+
+	<script src="scripts/config.lazyload.js"></script>
+	<script src="scripts/ui-load.js"></script>
+	<script src="scripts/ui-jp.js"></script>
+	<script src="scripts/ui-include.js"></script>
+	<script src="scripts/ui-device.js"></script>
+	<script src="scripts/ui-form.js"></script>
+	<script src="scripts/ui-nav.js"></script>
+	<script src="scripts/ui-screenfull.js"></script>
+	<script src="scripts/ui-scroll-to.js"></script>
+	<script src="scripts/ui-toggle-class.js"></script>
+	<script src="scripts/ui-taburl.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/site.js"></script>
+	<script src="scripts/ajax.js"></script>
+	<!-- endbuild -->
+</body>
+
+</html>
