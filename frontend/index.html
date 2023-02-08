@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>pulse - Music, Audio and Radio web application</title>
+	<title>Harry Kwan Music Player</title>
 	<meta name="description" content="Music, Musician, Bootstrap" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,17 +50,10 @@
 				<div class="navbar no-radius">
 					<!-- brand -->
 					<a href="index.html" class="navbar-brand md">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
-							<circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)" />
-							<circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color" />
-							<circle cx="24" cy="24" r="10" fill="#ffffff" />
-							<circle cx="13" cy="13" r="2" fill="#ffffff" class="brand-animate" />
-							<path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
-							<circle cx="24" cy="24" r="3" fill="#000000" />
-						</svg>
 
-						<img src="images/logo.png" alt="." class="hide">
-						<span class="hidden-folded inline">pulse</span>
+
+						<img src="images/logo.png" alt="logo" class="">
+						<span class="hidden-folded inline"></span>
 					</a>
 					<!-- / brand -->
 				</div>
@@ -204,17 +197,9 @@
 				<div class="navbar">
 					<!-- brand -->
 					<a href="index.html" class="navbar-brand md">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
-							<circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)" />
-							<circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color" />
-							<circle cx="24" cy="24" r="10" fill="#ffffff" />
-							<circle cx="13" cy="13" r="2" fill="#ffffff" class="brand-animate" />
-							<path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
-							<circle cx="24" cy="24" r="3" fill="#000000" />
-						</svg>
 
-						<img src="images/logo.png" alt="." class="hide">
-						<span class="hidden-folded inline">pulse</span>
+						<img src="images/logo.png" style="width: 100px; max-height: 1000px" alt="logo">
+						<span class="hidden-folded inline"></span>
 					</a>
 					<!-- / brand -->
 					<!-- nabar right -->
@@ -237,7 +222,7 @@
 
 				<!-- ############ PAGE START-->
 				<div class="padding">
-					<form action="#" class="m-b-md">
+					<form onsubmit="return confirmsearch(event)" class="m-b-md">
 						<div class="input-group input-group-lg">
 							<input type="text" v-model="searchinput" class="form-control" placeholder="Type keyword">
 							<span class="input-group-btn">
@@ -391,9 +376,11 @@
 						<div class="mejs-controls">
 							<div class="mejs-button mejs-previous-button mejs-previous"><button type="button"
 									aria-controls="mep_0" title="Previous Track"></button></div>
-							<div class="mejs-button mejs-playpause-button mejs-play"><button type="button"
-									v-on:click="playsong()" aria-controls="mep_0" title="Play"
-									aria-label="Play"></button></div>
+							<div
+								:class='{"mejs-button":true, "mejs-playpause-button":true, "mejs-pause": audiostatus=="play" , "mejs-play":audiostatus=="stop" }'>
+								<button type="button" v-on:click="playsong()" aria-controls="mep_0" title="Play"
+									aria-label="Play"></button>
+							</div>
 							<div class="mejs-button mejs-next-button mejs-next"><button type="button"
 									aria-controls="mep_0" title="Next Track"></button></div>
 							<div class="mejs-time-rail" style="width: 799px;"><span
@@ -447,7 +434,8 @@
 				return {
 					searchresult: [],
 					searchinput: '',
-					nowplaying: {}
+					nowplaying: {},
+					audiostatus: ''
 				}
 			}, methods: {
 				searchsong: async function () {
@@ -468,13 +456,25 @@
 					// document.getElementById("nowplayingaudio").play()
 					setTimeout(() => {
 						document.getElementById("nowplayingaudio").play()
+						VueApp.$data.audiostatus = 'play'
 					}, 500);
-
 				}, playsong: async function () {
-					document.getElementById("nowplayingaudio").play()
+					console.log(document.getElementById("nowplayingaudio").paused)
+					if (document.getElementById("nowplayingaudio").paused) {
+						document.getElementById("nowplayingaudio").play();
+						VueApp.$data.audiostatus = 'play';
+					} else {
+						document.getElementById("nowplayingaudio").pause();
+						VueApp.$data.audiostatus = 'stop';
+					}
 				}
 			}
-		}).mount('#app')
+		}).mount('#app');
+
+		function confirmsearch(e) {
+			e.preventDefault(); VueApp.searchsong()
+			return false;
+		} 
 	</script>
 	<!-- build:js scripts/app.min.js -->
 	<!-- jQuery -->

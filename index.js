@@ -12,12 +12,7 @@ app.get("/search/:keywords", async (req, res) => {
 });
 
 app.get("/audio/:videoId", async (req, res) => {
-  for await (const chunk of stream(
-    `http://youtube.com/watch?v=${req.params.videoId}`
-  )) {
-    res.write(chunk);
-  }
-  res.end();
+  stream(`http://youtube.com/watch?v=${req.params.videoId}`).pipe(res);
 });
 
 app.use(express.static("frontend"));
